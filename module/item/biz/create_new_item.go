@@ -2,6 +2,7 @@ package biz
 
 import (
 	"context"
+	"to-list/common"
 	"to-list/module/item/model"
 )
 
@@ -27,7 +28,7 @@ func (biz *createItemBiz) CreateItem(ctx context.Context, data *model.TodoItemCr
 	}
 
 	if err := biz.store.CreateItem(ctx, data); err != nil {
-		return err
+		return common.ErrCannotCreateEntity(model.EntityName, err)
 	}
 
 	return nil

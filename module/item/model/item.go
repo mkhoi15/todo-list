@@ -11,6 +11,10 @@ var (
 	ErrItemDeleted        = errors.New("item has been deleted")
 )
 
+const (
+	EntityName = "Item"
+)
+
 type TodoItem struct {
 	common.SQLModel
 	Title       string `json:"title" gorm:"column:title;"`

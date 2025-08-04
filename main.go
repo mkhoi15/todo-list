@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"to-list/middleware"
 	ginitem "to-list/module/item/transport/gin"
 )
 
@@ -21,6 +22,7 @@ func main() {
 	log.Println("Connected to database", db) ////////////////
 
 	r := gin.Default()
+	r.Use(middleware.Recover())
 
 	v1 := r.Group("/v1")
 	{
